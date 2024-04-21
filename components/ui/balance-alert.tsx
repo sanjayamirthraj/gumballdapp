@@ -23,7 +23,7 @@ export default function BalanceAlert() {
             Your current balance is: {data?.formatted} {data?.symbol}
           </AlertDescription>
           <AlertDescription>
-            Estimated Gas Cost is: {gasData?.toString()} {data?.symbol}
+            Estimated Gas Cost is: {gasData?.toString()} GWEI
           </AlertDescription>
           <AlertDescription>
             Current Block Number: {block?.number.toString()}
