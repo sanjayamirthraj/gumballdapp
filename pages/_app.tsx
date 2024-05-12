@@ -27,7 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={client}>
-        <RainbowKitProvider coolMode showRecentTransactions={true}>
+        <RainbowKitProvider
+          coolMode
+          showRecentTransactions={true}
+          modalSize="compact"
+        >
           <Component {...pageProps} />
         </RainbowKitProvider>
       </QueryClientProvider>

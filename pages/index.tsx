@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         background-animatez-50 inset-0 "
         >
           <NotConnectedCard />
-          <IncorrectChain chain={chainName} />
+          {isConnected && <IncorrectChain chain={chainName} />}
         </div>
       )}
     </div>
