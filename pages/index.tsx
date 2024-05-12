@@ -9,9 +9,18 @@ import NotConnectedCard from "../components/ui/not-connected";
 import BalanceAlert from "../components/ui/balance-alert";
 import TransactionCard from "../components/ui/transaction-count-card";
 import Image from "next/image";
+import IncorrectChain from "../components/ui/incorrect-chain";
+
+function verifyChainIsSupported(chainId: string) {
+  if (chainId === "Sepolia") {
+    return true;
+  }
+}
 
 const Home: NextPage = () => {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, chain } = useAccount();
+  console.log(chain?.name);
+  const chainName = chain?.name || "";
 
   return (
     <div
@@ -26,7 +35,7 @@ const Home: NextPage = () => {
       <div className="p-2 m-2">
         <NavBar />
       </div>
-      {isConnected ? (
+      {isConnected && verifyChainIsSupported(chainName) ? (
         <div className="m-2 grid grid-cols-2 grid-rows- gap-2">
           <div className="grid grid-cols-1 grid-rows-4 gap-1">
             <GumballCard />
@@ -47,6 +56,7 @@ const Home: NextPage = () => {
         background-animatez-50 inset-0 "
         >
           <NotConnectedCard />
+          <IncorrectChain chain={chainName} />
         </div>
       )}
     </div>

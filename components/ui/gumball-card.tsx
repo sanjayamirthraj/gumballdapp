@@ -80,7 +80,7 @@ export default function GumballCard() {
 
   return (
     <div className="">
-      <div className="col">
+      <div className="col ">
         <Card>
           <CardHeader>
             <CardTitle>Gumball Machine</CardTitle>
